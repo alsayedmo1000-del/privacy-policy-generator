@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Legal & Privacy Information</title>
+  
+  <!-- Standalone Ultra-Modern Styles for Android WebView with Auto Dark Mode -->
+  <style>
+    :root {
+      --bg: #ffffff;
+      --card-bg: #f8fafc;
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --primary: #4f46e5;
+      --primary-hover: #4338ca;
+      --tag-bg: #eef2ff;
+      --tag-text: #4338ca;
+      --nav-bg: #ffffff;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0b0f19;
+        --card-bg: #151c2e;
+        --text-main: #f8fafc;
+        --text-muted: #94a3b8;
+        --border: #28344e;
+        --primary: #818cf8;
+        --primary-hover: #a5b4fc;
+        --tag-bg: #1e1b4b;
+        --tag-text: #c7d2fe;
+        --nav-bg: #0b0f19;
+      }
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.7;
+      padding: 16px 16px 40px 16px;
+      font-size: 15px;
+      transition: background-color 0.2s, color 0.2s;
+    }
+
+    .container {
+      max-width: 740px;
+      margin: 0 auto;
+    }
+
+    /* Top Sticky Navigation Bar */
+    .top-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--nav-bg);
+      padding: 10px 0 14px 0;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 22px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    /* Segmented Tab Pill for Document Switching */
+    .doc-tabs {
+      display: inline-flex;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 25px;
+      padding: 3px;
+    }
+
+    .doc-tab-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .doc-tab-btn.is-active {
+      background: var(--primary);
+      color: #ffffff;
+      box-shadow: 0 2px 6px rgba(79, 70, 229, 0.25);
+    }
+
+    /* Multi-Language Selector Dropdown */
+    .lang-select {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      color: var(--text-main);
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      outline: none;
+    }
+
+    /* Headers */
+    .doc-header {
+      margin-bottom: 22px;
+    }
+
+    .doc-header h1 {
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-bottom: 6px;
+      line-height: 1.3;
+    }
+
+    .effective-date {
+      font-size: 13px;
+      color: var(--text-muted);
+      font-weight: 500;
+      display: inline-block;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      background: var(--tag-bg);
+      color: var(--tag-text);
+      margin-top: 6px;
+    }
+
+    /* Section Typography */
+    h2 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-top: 26px;
+      margin-bottom: 10px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    p { margin-bottom: 14px; color: var(--text-main); }
+    ul, ol { margin-bottom: 16px; padding-inline-start: 22px; }
+    li { margin-bottom: 6px; color: var(--text-main); }
+    a { color: var(--primary); text-decoration: underline; text-underline-offset: 3px; word-break: break-all; }
+    a:hover { color: var(--primary-hover); }
+
+    .callout {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px 16px;
+      margin: 16px 0;
+    }
+
+    .callout-title { font-weight: 700; font-size: 14px; margin-bottom: 4px; color: var(--text-main); }
+    .callout p { margin-bottom: 0; font-size: 13.5px; color: var(--text-muted); }
+
+    .footer {
+      margin-top: 36px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border);
+      font-size: 12px;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    .is-hidden { display: none !important; }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- Top Sticky Bar -->
+    <nav class="top-nav">
+      <!-- Document Switcher -->
+      <div class="doc-tabs">
+        <button id="tab-btn-p" class="doc-tab-btn is-active" type="button">Privacy Policy</button>
+        <button id="tab-btn-t" class="doc-tab-btn" type="button">Terms & Conditions</button>
+      </div>
+
+      <!-- Language Selector (English, Arabic, French, Spanish, German, Turkish) -->
+      <select id="lang-picker-select" class="lang-select">
+        <option value="en" selected>🇬🇧 English</option>
+        <option value="ar">🇸🇦 العربية</option>
+        <option value="fr">🇫🇷 Français</option>
+        <option value="es">🇪🇸 Español</option>
+        <option value="de">🇩🇪 Deutsch</option>
+        <option value="tr">🇹🇷 Türkçe</option>
+      </select>
+    </nav>
+
+    <!-- PRIVACY POLICY CONTAINER -->
+    <div id="box-privacy">
+      <!-- English -->
+      <div id="p-en">
+        <div class="doc-header">
+          <h1>Privacy Policy</h1>
+          <div class="effective-date">Effective Date: November 10, 2026</div>
+          <div><span class="badge">Google Play Data Safety 2026 Compliant</span></div>
+        </div>
+        <p>This Privacy Policy applies to the <strong>[Your App Name]</strong> mobile application for Android devices, operated by <strong>[Your Developer / Company Name]</strong> ("we", "us", or "our") as an <strong>Ad-Supported / Free</strong> mobile application.</p>
+        <h2>1. Information Collection and Use</h2>
+        <p>To provide and improve our service, we may collect anonymous device diagnostics and user permissions including:</p>
+        <ul>
+          <li><strong>Device & Advertising ID (GAID):</strong> Used by ad networks to deliver relevant advertisements and monitor metrics.</li>
+          <li><strong>Approximate Location (IP Address):</strong> Used to provide regional content and localized features.</li>
+          <li><strong>Crash Logs & Diagnostics:</strong> Automated error reports to resolve technical bugs and ANR issues.</li>
+        </ul>
+        <h2>2. Third-Party Services and SDKs</h2>
+        <p>The Application integrates verified third-party libraries governed by their official policies:</p>
+        <ul>
+          <li><a href="https://policies.google.com/privacy" target="_blank">Google Play Services</a></li>
+          <li><a href="https://support.google.com/admob/answer/6128543?hl=en" target="_blank">Google AdMob</a></li>
+          <li><a href="https://firebase.google.com/support/privacy" target="_blank">Google Analytics for Firebase</a></li>
+          <li><a href="https://firebase.google.com/support/privacy" target="_blank">Firebase Crashlytics</a></li>
+        </ul>
+        <h2>3. Children's Privacy (COPPA)</h2>
+        <p>We do not knowingly collect personal information from children under 13. If you become aware that a child has provided us with personal records, please contact us for immediate deletion.</p>
+        <h2>4. Account and Data Deletion</h2>
+        <div class="callout">
+          <div class="callout-title">Data Deletion Rights</div>
+          <p>In accordance with Google Play requirements, users maintain the right to request permanent deletion of their account and all data records.</p>
+        </div>
+        <p>Request data deletion: <a href="mailto:support@example.com">support@example.com</a> or via portal: <a href="https://example.com/delete-account">https://example.com/delete-account</a></p>
+        <h2>5. Contact Us</h2>
+        <p>If you have questions, contact us at: <a href="mailto:support@example.com">support@example.com</a></p>
+      </div>
+
+      <!-- Arabic -->
+      <div id="p-ar" class="is-hidden" dir="rtl">
+        <div class="doc-header">
+          <h1>سياسة الخصوصية</h1>
+          <div class="effective-date">تاريخ السريان: 10 نوفمبر 2026</div>
+          <div><span class="badge">متوافقة مع متطلبات Google Play وأمان البيانات</span></div>
+        </div>
+        <p>تنطبق سياسة الخصوصية هذه على تطبيق <strong>[اسم تطبيقك]</strong> لأجهزة أندرويد، والمقدم من <strong>[اسم المطور أو الشركة]</strong> كخدمة <strong>مجانية مدعومة بالإعلانات</strong>.</p>
+        <h2>1. جمع المعلومات واستخدامها</h2>
+        <p>لتقديم وتطوير خدماتنا، قد يقوم التطبيق بجمع بعض البيانات التقنية المجهولة:</p>
+        <ul>
+          <li><strong>معرّف الجهاز والإعلانات (Advertising ID):</strong> يُستخدم لعرض الإعلانات المناسبة وقياس كفاءة الحملات.</li>
+          <li><strong>الموقع الجغرافي التقريبي (IP Address):</strong> لتقديم ميزات مخصصة بحسب منطقتك.</li>
+          <li><strong>بيانات الأعطال والتشخيص:</strong> سجلات تقنية فورية لمعالجة الأخطاء وضمان الاستقرار.</li>
+        </ul>
+        <h2>2. خدمات ومكتبات الطرف الثالث</h2>
+        <p>يستخدم التطبيق الخدمات التابعة لجهات خارجية والمدرجة أدناه:</p>
+        <ul>
+          <li><a href="https://policies.google.com/privacy" target="_blank">خدمات Google Play Services</a></li>
+          <li><a href="https://support.google.com/admob/answer/6128543?hl=en" target="_blank">شبكة إعلانات Google AdMob</a></li>
+          <li><a href="https://firebase.google.com/support/privacy" target="_blank">تحليلات Firebase Analytics</a></li>
+          <li><a href="https://firebase.google.com/support/privacy" target="_blank">تقارير الأعطال Firebase Crashlytics</a></li>
+        </ul>
+        <h2>3. حذف الحساب والبيانات</h2>
+        <div class="callout">
+          <div class="callout-title">حق حذف الحساب والبيانات نهائياً</div>
+          <p>وفقاً لمتطلبات متجر Google Play، يحق لك في أي وقت طلب حذف حسابك وجميع بياناتك نهائياً.</p>
+        </div>
+        <p>لطلب الحذف: <a href="mailto:support@example.com">support@example.com</a> أو زيارة: <a href="https://example.com/delete-account">https://example.com/delete-account</a></p>
+        <h2>4. تواصل معنا</h2>
+        <p>لأي استفسار تواصل عبر: <a href="mailto:support@example.com">support@example.com</a></p>
+      </div>
+
+      <!-- French -->
+      <div id="p-fr" class="is-hidden">
+        <div class="doc-header">
+          <h1>Politique de Confidentialité</h1>
+          <div class="effective-date">Date d'entrée en vigueur: 10 Novembre 2026</div>
+        </div>
+        <p>Cette politique s'applique à l'application mobile <strong>[Nom de l'application]</strong> développée par <strong>[Développeur]</strong>.</p>
+        <h2>1. Collecte et utilisation des données</h2>
+        <p>Nous pouvons collecter des identifiants d'appareil et des journaux de diagnostic anonymes pour améliorer nos services.</p>
+        <h2>2. Suppression des données</h2>
+        <p>Vous pouvez demander la suppression complète de vos données en écrivant à : <a href="mailto:support@example.com">support@example.com</a></p>
+      </div>
+
+      <!-- Spanish -->
+      <div id="p-es" class="is-hidden">
+        <div class="doc-header">
+          <h1>Política de Privacidad</h1>
+          <div class="effective-date">Fecha de vigencia: 10 de Noviembre de 2026</div>
+        </div>
+        <p>Esta política se aplica a la aplicación <strong>[Nombre de la app]</strong> operada por <strong>[Desarrollador]</strong>.</p>
+        <h2>1. Recopilación de datos</h2>
+        <p>Podemos recopilar identificadores de publicidad anónimos y registros de fallos para mejorar el rendimiento.</p>
+        <h2>2. Eliminación de datos</h2>
+        <p>Solicite la eliminación permanente de sus datos en: <a href="mailto:support@example.com">support@example.com</a></p>
+      </div>
+
+      <!-- German -->
+      <div id="p-de" class="is-hidden">
+        <div class="doc-header">
+          <h1>Datenschutzerklärung</h1>
+          <div class="effective-date">Gültig ab: 10. November 2026</div>
+        </div>
+        <p>Diese Datenschutzerklärung gilt für die mobile Anwendung <strong>[App-Name]</strong>, betrieben von <strong>[Entwickler / Unternehmen]</strong>.</p>
+        <h2>1. Datenerfassung</h2>
+        <p>Wir erfassen gegebenenfalls anonyme Gerätekennungen und Fehlerdiagnosen, um die Stabilität der App zu verbessern.</p>
+        <h2>2. Datenlöschung (DSGVO)</h2>
+        <p>Sie können jederzeit die vollständige Löschung Ihrer Daten beantragen unter: <a href="mailto:support@example.com">support@example.com</a></p>
+      </div>
+
+      <!-- Turkish -->
+      <div id="p-tr" class="is-hidden">
+        <div class="doc-header">
+          <h1>Gizlilik Politikası</h1>
+          <div class="effective-date">Yürürlük Tarihi: 10 Kasım 2026</div>
+        </div>
+        <p>Bu gizlilik politikası, <strong>[Geliştirici]</strong> tarafından sunulan <strong>[Uygulama Adı]</strong> mobil uygulaması için geçerlidir.</p>
+        <h2>1. Veri Toplama</h2>
+        <p>Hizmet kalitesini artırmak amacıyla anonim cihaz kimlikleri ve çökme raporları toplanabilir.</p>
+        <h2>2. Veri Silme</h2>
+        <p>Verilerinizin kalıcı olarak silinmesini talep etmek için: <a href="mailto:support@example.com">support@example.com</a></p>
+      </div>
+    </div>
+
+    <!-- TERMS & CONDITIONS CONTAINER -->
+    <div id="box-terms" class="is-hidden">
+      <!-- English -->
+      <div id="t-en">
+        <div class="doc-header">
+          <h1>Terms & Conditions</h1>
+          <div class="effective-date">Effective Date: November 10, 2026</div>
+        </div>
+        <p>By downloading or using the <strong>[Your App Name]</strong> mobile application, these terms automatically apply to you.</p>
+        <h2>1. Intellectual Property</h2>
+        <p>The Application, including its source code, design, and trademarks, remains the exclusive property of <strong>[Your Developer / Company Name]</strong>.</p>
+        <h2>2. Limitation of Liability</h2>
+        <p>The service is provided on an "as is" and "as available" basis without express or implied warranties.</p>
+        <h2>3. Contact Us</h2>
+        <p>For questions regarding these terms: <a href="mailto:support@example.com">support@example.com</a></p>
+      </div>
+
+      <!-- Arabic -->
+      <div id="t-ar" class="is-hidden" dir="rtl">
+        <div class="doc-header">
+          <h1>الشروط والأحكام</h1>
+          <div class="effective-date">تاريخ السريان: 10 نوفمبر 2026</div>
+        </div>
+        <p>بتنزيل أو استخدام تطبيق <strong>[اسم تطبيقك]</strong>، فإنك توافق على الالتزام بالشروط والأحكام الصادرة عن <strong>[اسم المطور أو الشركة]</strong>.</p>
+        <h2>1. حقوق الملكية الفكرية</h2>
+        <p>جميع العلامات التجارية وحقوق النشر وكود المصدر الخاص بالتطبيق تظل ملكاً حصرياً للمطور.</p>
+        <h2>2. حدود المسؤولية</h2>
+        <p>يتم توفير التطبيق "كما هو" وبحالته الراهنة دون أي ضمانات صريحة أو ضمنية.</p>
+        <h2>3. تواصل معنا</h2>
+        <p>لأي استفسار بشأن الشروط: <a href="mailto:support@example.com">support@example.com</a></p>
+      </div>
+
+      <!-- French -->
+      <div id="t-fr" class="is-hidden">
+        <div class="doc-header">
+          <h1>Conditions d'Utilisation</h1>
+          <div class="effective-date">Date d'entrée en vigueur: 10 Novembre 2026</div>
+        </div>
+        <p>En téléchargeant ou en utilisant l'application <strong>[Nom de l'application]</strong>, vous acceptez les présentes conditions.</p>
+        <h2>1. Propriété intellectuelle</h2>
+        <p>L'application et son code source demeurent la propriété exclusive de <strong>[Développeur]</strong>.</p>
+        <h2>2. Contact</h2>
+        <p>Contact : <a href="mailto:support@example.com">support@example.com</a></p>
+      </div>
+
+      <!-- Spanish -->
+      <div id="t-es" class="is-hidden">
+        <div class="doc-header">
+          <h1>Términos y Condiciones</h1>
+          <div class="effective-date">Fecha de vigencia: 10 de Noviembre de 2026</div>
+        </div>
+        <p>Al descargar o usar la aplicación <strong>[Nombre de la app]</strong>, usted acepta automáticamente estos términos.</p>
+        <h2>1. Propiedad intelectual</h2>
+        <p>La aplicación y su código fuente son propiedad exclusiva de <strong>[Desarrollador]</strong>.</p>
+        <h2>2. Contacto</h2>
+        <p>Contacto: <a href="mailto:support@example.com">support@example.com</a></p>
+      </div>
+
+      <!-- German -->
+      <div id="t-de" class="is-hidden">
+        <div class="doc-header">
+          <h1>Nutzungsbedingungen</h1>
+          <div class="effective-date">Gültig ab: 10. November 2026</div>
+        </div>
+        <p>Durch das Herunterladen oder Nutzen der App <strong>[App-Name]</strong> stimmen Sie diesen Bedingungen zu.</p>
+        <h2>1. Geistiges Eigentum</h2>
+        <p>Alle Rechte an der App verbleiben bei <strong>[Entwickler]</strong>.</p>
+        <h2>2. Kontakt</h2>
+        <p>Kontakt: <a href="mailto:support@example.com">support@example.com</a></p>
+      </div>
+
+      <!-- Turkish -->
+      <div id="t-tr" class="is-hidden">
+        <div class="doc-header">
+          <h1>Kullanım Koşulları</h1>
+          <div class="effective-date">Yürürlük Tarihi: 10 Kasım 2026</div>
+        </div>
+        <p><strong>[Uygulama Adı]</strong> uygulamasını indirerek bu kullanım koşullarını kabul etmiş sayılırsınız.</p>
+        <h2>1. Fikri Mülkiyet</h2>
+        <p>Uygulamanın tüm hakları <strong>[Geliştirici]</strong> adına saklıdır.</p>
+        <h2>2. İletişim</h2>
+        <p>İletişim: <a href="mailto:support@example.com">support@example.com</a></p>
+      </div>
+    </div>
+
+    <div class="footer">
+      &copy; 2026 [Your Developer / Company Name]. All rights reserved.
+    </div>
+
+  </div>
+
+  <script>
+    (function() {
+      var curDoc = 'privacy';
+      var curLang = 'en';
+
+      var tabP = document.getElementById('tab-btn-p');
+      var tabT = document.getElementById('tab-btn-t');
+      var boxP = document.getElementById('box-privacy');
+      var boxT = document.getElementById('box-terms');
+      var langSelect = document.getElementById('lang-picker-select');
+
+      function update() {
+        if (curDoc === 'privacy') {
+          boxP.classList.remove('is-hidden');
+          boxT.classList.add('is-hidden');
+          tabP.classList.add('is-active');
+          tabT.classList.remove('is-active');
+        } else {
+          boxT.classList.remove('is-hidden');
+          boxP.classList.add('is-hidden');
+          tabT.classList.add('is-active');
+          tabP.classList.remove('is-active');
+        }
+
+        // Hide all lang variants
+        ['en', 'ar', 'fr', 'es', 'de', 'tr'].forEach(function(l) {
+          var pe = document.getElementById('p-' + l);
+          var te = document.getElementById('t-' + l);
+          if (pe) pe.classList.add('is-hidden');
+          if (te) te.classList.add('is-hidden');
+        });
+
+        // Show active lang
+        var activeP = document.getElementById('p-' + curLang) || document.getElementById('p-en');
+        var activeT = document.getElementById('t-' + curLang) || document.getElementById('t-en');
+        if (activeP) activeP.classList.remove('is-hidden');
+        if (activeT) activeT.classList.remove('is-hidden');
+
+        document.documentElement.setAttribute('lang', curLang);
+        document.documentElement.setAttribute('dir', curLang === 'ar' ? 'rtl' : 'ltr');
+      }
+
+      tabP.addEventListener('click', function() { curDoc = 'privacy'; update(); });
+      tabT.addEventListener('click', function() { curDoc = 'terms'; update(); });
+      langSelect.addEventListener('change', function(e) { curLang = e.target.value; update(); });
+
+      update();
+    })();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>App Privacy Policy Generator | صانع سياسة الخصوصية والشروط المطور</title>
+  <meta name="description" content="Generate high-standard, Google Play & Apple App Store compliant Privacy Policy and Terms & Conditions in 12 global languages.">
+  <meta name="theme-color" content="#4f46e5">
+
+  <!-- Bulma 0.9.4 Base Framework -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css">
+  
+  <!-- Font Awesome 6.5 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Custom Luxury Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="ambient-glow-wrapper dark-mode">
+
+  <!-- Ultra-Modern Hero Header -->
+  <header class="glass-header py-5 px-4 no-print">
+    <div class="container" style="max-width: 860px;">
+      
+      <!-- Top Action Controls (Language Selector + Theme Toggle) -->
+      <div class="is-flex is-justify-content-space-between is-align-items-center mb-3">
+        <!-- Google Play 2027 Badge -->
+        <span class="tag is-success is-light is-rounded font-weight-bold">
+          <i class="fas fa-check-circle mx-1"></i>
+          <span data-i18n="badgeGoogleCompliant">متوافق مع معايير Google Play 2027</span>
+        </span>
+
+        <!-- Right Controls -->
+        <div class="is-flex is-align-items-center gap-2">
+          
+          <!-- Global Languages Dropdown (12 Countries / Languages) -->
+          <div class="lang-dropdown-wrapper">
+            <button id="btn-lang-dropdown" type="button" class="button is-small is-white is-outlined is-rounded font-weight-bold">
+              <span id="current-lang-flag" class="mx-1">🇸🇦</span>
+              <span id="current-lang-name">العربية</span>
+              <i class="fas fa-chevron-down mx-1 is-size-7"></i>
+            </button>
+            <div id="lang-dropdown-menu" class="lang-dropdown-menu">
+              <!-- Dynamically populated via JS with 12 world languages -->
+            </div>
+          </div>
+
+          <!-- Dark/Light Mode Button -->
+          <button id="theme-toggle-btn" type="button" class="button is-small is-white is-outlined is-rounded" title="Toggle Theme">
+            <i class="fas fa-sun has-text-warning" id="theme-icon"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Hero Title and Subtitle -->
+      <div class="has-text-centered has-text-white py-2">
+        <div class="is-flex is-justify-content-center is-align-items-center gap-2 mb-1">
+          <span class="icon is-large">
+            <i class="fas fa-shield-halved fa-2x"></i>
+          </span>
+          <h1 class="title is-3 has-text-white mb-0" id="site-title" data-i18n="siteTitle">
+            صانع سياسة الخصوصية والشروط
+          </h1>
+        </div>
+        <p class="subtitle is-6 has-text-white-ter mt-1" id="site-subtitle" data-i18n="siteSubtitle">
+          أنشئ سياسة خصوصية وشروط استخدام معتمدة لمتاجر Google Play و Apple App Store في دقائق مجاناً
+        </p>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="section py-5">
+    <div class="container" style="max-width: 860px;">
+
+      <!-- Glassmorphic Elevated Main Card Box -->
+      <div class="glass-card p-5 p-6-tablet">
+        
+        <!-- Modern Stepper Indicator (1. App Details -> 2. Third-Party Services -> 3. Generate) -->
+        <div class="modern-stepper no-print">
+          <div class="stepper-node active" id="node-step-1" role="button" tabindex="0">
+            <div class="stepper-bubble">1</div>
+            <div class="stepper-label" data-i18n="step1">معلومات التطبيق</div>
+          </div>
+          <div class="stepper-node" id="node-step-2" role="button" tabindex="0">
+            <div class="stepper-bubble">2</div>
+            <div class="stepper-label" data-i18n="step2">خدمات الطرف الثالث</div>
+          </div>
+          <div class="stepper-node" id="node-step-3" role="button" tabindex="0">
+            <div class="stepper-bubble">3</div>
+            <div class="stepper-label" data-i18n="step3">توليد الوثائق</div>
+          </div>
+        </div>
+
+        <hr class="my-4 no-print" style="border-color: var(--card-border);">
+
+        <!-- ============================================================== -->
+        <!-- STEP 1: ADVANCED APPLICATION INFORMATION                       -->
+        <!-- ============================================================== -->
+        <div id="step-pane-1">
+
+          <!-- One-Click Quick Presets Bar -->
+          <div class="presets-bar mb-4">
+            <div class="advanced-label mb-2">
+              <span><i class="fas fa-wand-magic-sparkles has-text-link mx-1"></i> <span data-i18n="lblPresets">قوالب سريعة بنقرة واحدة (Quick Presets):</span></span>
+            </div>
+            <div class="preset-buttons-grid">
+              <button type="button" class="preset-pill-btn" data-preset="ad-game" data-i18n="presetGame">🎮 لعبة مع إعلانات</button>
+              <button type="button" class="preset-pill-btn" data-preset="ecommerce" data-i18n="presetEcommerce">🛒 متجر إلكتروني</button>
+              <button type="button" class="preset-pill-btn" data-preset="offline-utility" data-i18n="presetOffline">⚡ أداة بدون تتبع</button>
+              <button type="button" class="preset-pill-btn" data-preset="saas-freemium" data-i18n="presetSaas">🌟 تطبيق سحابي واشتراكات</button>
+            </div>
+          </div>
+          
+          <!-- App Name Advanced Input -->
+          <div class="advanced-input-group">
+            <label class="advanced-label" for="inp-app-name">
+              <span data-i18n="lblAppName">اسم التطبيق أو الموقع (App Name)</span>
+              <span class="is-size-7 has-text-grey" id="app-name-counter" dir="ltr">14 / 50</span>
+            </label>
+            <div class="advanced-input-wrapper">
+              <i class="fas fa-mobile-screen advanced-input-icon"></i>
+              <input type="text" id="inp-app-name" class="advanced-input" placeholder="My Awesome App" value="My Awesome App" maxlength="50">
+              <i class="fas fa-times-circle input-clear-btn" data-target="inp-app-name"></i>
+            </div>
+            <p class="help is-size-7 has-text-grey mt-1" data-i18n="helpAppName">الاسم الرسمي كما سيظهر للمستخدمين في المتجر</p>
+          </div>
+
+          <!-- Contact Email Advanced Input -->
+          <div class="advanced-input-group">
+            <label class="advanced-label" for="inp-email" data-i18n="lblContact">
+              البريد الإلكتروني للدعم الفني (Support Contact Email)
+            </label>
+            <div class="advanced-input-wrapper">
+              <i class="fas fa-envelope advanced-input-icon"></i>
+              <input type="email" id="inp-email" class="advanced-input" placeholder="support@example.com" value="support@example.com" dir="ltr">
+              <i class="fas fa-times-circle input-clear-btn" data-target="inp-email"></i>
+            </div>
+            <p class="help is-size-7 has-text-grey mt-1" data-i18n="helpContact">البريد أو رابط صفحة المساعدة للتواصل مع المستخدمين</p>
+          </div>
+
+          <!-- App Type and Platform Selectors -->
+          <div class="columns is-variable is-2">
+            <div class="column is-6">
+              <div class="advanced-input-group">
+                <label class="advanced-label" for="sel-app-type" data-i18n="lblAppType">نوع التطبيق وطريقة التوزيع</label>
+                <div class="advanced-input-wrapper advanced-select-wrapper">
+                  <i class="fas fa-tag advanced-input-icon"></i>
+                  <select id="sel-app-type" class="advanced-select">
+                    <option value="ad-supported" selected data-i18n="optAdSupported">مجاني مدعوم بالإعلانات (Ad-Supported)</option>
+                    <option value="free" data-i18n="optFree">مجاني بالكامل بدون إعلانات (Free)</option>
+                    <option value="freemium" data-i18n="optFreemium">مجاني مع مشتريات واشتراكات (Freemium)</option>
+                    <option value="commercial" data-i18n="optCommercial">مدفوع للشراء المسبق (Paid)</option>
+                    <option value="open-source" data-i18n="optOpenSource">مفتوح المصدر (Open Source)</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="column is-6">
+              <div class="advanced-input-group">
+                <label class="advanced-label" for="sel-platform" data-i18n="lblPlatform">نظام التشغيل / المنصة المستهدفة</label>
+                <div class="advanced-input-wrapper advanced-select-wrapper">
+                  <i class="fas fa-layer-group advanced-input-icon"></i>
+                  <select id="sel-platform" class="advanced-select">
+                    <option value="android" selected data-i18n="optAndroid">أندرويد (Android)</option>
+                    <option value="ios" data-i18n="optIos">آبل (iOS)</option>
+                    <option value="cross" data-i18n="optCross">متعدد المنصات (Android & iOS)</option>
+                    <option value="web" data-i18n="optWeb">الويب (Web App)</option>
+                    <option value="kaios" data-i18n="optKaios">KaiOS</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Effective Date -->
+          <div class="advanced-input-group">
+            <label class="advanced-label" for="inp-effective-date" data-i18n="lblEffectiveDate">تاريخ سريان الوثيقة (Policy Effective Date)</label>
+            <div class="advanced-input-wrapper">
+              <i class="fas fa-calendar-alt advanced-input-icon"></i>
+              <input type="date" id="inp-effective-date" class="advanced-input">
+            </div>
+          </div>
+
+          <!-- Developer Name & Ownership Type -->
+          <div class="columns is-variable is-2">
+            <div class="column is-6">
+              <div class="advanced-input-group">
+                <label class="advanced-label" for="inp-dev-name" data-i18n="lblDevName">اسم المطور أو اسم الشركة</label>
+                <div class="advanced-input-wrapper">
+                  <i class="fas fa-user-tie advanced-input-icon"></i>
+                  <input type="text" id="inp-dev-name" class="advanced-input" placeholder="Developer Studio" value="Developer Studio">
+                  <i class="fas fa-times-circle input-clear-btn" data-target="inp-dev-name"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="column is-6">
+              <div class="advanced-input-group">
+                <label class="advanced-label" data-i18n="lblOwnerType">نوع الجهة المالكة</label>
+                <div class="is-flex is-align-items-center gap-3 pt-2">
+                  <label class="radio is-flex is-align-items-center gap-1">
+                    <input type="radio" name="owner-entity" value="individual" checked>
+                    <span data-i18n="optIndividual">فرد (Individual)</span>
+                  </label>
+                  <label class="radio is-flex is-align-items-center gap-1">
+                    <input type="radio" name="owner-entity" value="company">
+                    <span data-i18n="optCompany">شركة (Company)</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Interactive PII Data Chips -->
+          <div class="advanced-input-group mt-4">
+            <label class="advanced-label">
+              <span data-i18n="lblPii">البيانات التي يجمعها التطبيق (Data Safety & PII)</span>
+              <span class="tag is-info is-light is-rounded font-weight-bold" id="pii-selected-counter">3 محددة</span>
+            </label>
+            <p class="help is-size-7 has-text-grey mb-2" data-i18n="helpPii">
+              انقر على البيانات التي يطلب التطبيق أذونات الوصول إليها للامتثال لمتطلبات Google Play Data Safety
+            </p>
+            <div class="chip-grid mb-3" id="pii-chips-container">
+              <!-- Dynamically populated via JS -->
+            </div>
+          </div>
+
+          <!-- Advanced Custom Tags Input -->
+          <div class="advanced-input-group">
+            <label class="advanced-label" for="inp-custom-tag" data-i18n="lblCustomData">إضافة بيانات مخصصة إضافية:</label>
+            <div class="tags-input-container" id="custom-tags-container">
+              <div id="custom-tags-list" class="is-flex is-flex-wrap-wrap gap-1"></div>
+              <input type="text" id="inp-custom-tag" class="tags-text-field" data-i18n-placeholder="phCustomData" placeholder="اكتب واضغط Enter لإضافة بيان مخصص...">
+            </div>
+            <p class="help is-size-7 has-text-grey mt-1" data-i18n="helpCustomData">اضغط Enter بعد كتابة كل بيان مخصص لإدراجه في السياسة</p>
+          </div>
+
+          <!-- Next Button -->
+          <div class="is-flex is-justify-content-flex-end mt-5 pt-3" style="border-top: 1px solid var(--card-border);">
+            <button id="btn-next-to-services" type="button" class="button btn-gradient is-medium px-6">
+              <span data-i18n="btnNextServices">التالي</span>
+              <span class="icon mx-1"><i id="icon-next-arrow" class="fas fa-arrow-left"></i></span>
+            </button>
+          </div>
+
+        </div>
+
+        <!-- ============================================================== -->
+        <!-- STEP 2: THIRD-PARTY SERVICES & LEGAL COMPLIANCE                -->
+        <!-- ============================================================== -->
+        <div id="step-pane-2" class="is-hidden">
+          
+          <div class="notification is-light mb-4" style="background: var(--input-bg); color: var(--text-main); border: 1px solid var(--input-border); border-radius: 14px;">
+            <p data-i18n="step2Instructions">
+              اختر جميع الخدمات والمكتبات المدمجة في تطبيقك. سيقوم المولد تلقائياً بتضمين بنودها القانونية وروابط سياساتها الرسمية:
+            </p>
+          </div>
+
+          <!-- Live Search & Category Filter Bar -->
+          <div class="columns is-variable is-2 mb-3">
+            <div class="column is-7">
+              <div class="advanced-input-wrapper">
+                <i class="fas fa-search advanced-input-icon"></i>
+                <input type="text" id="inp-search-services" class="advanced-input" data-i18n-placeholder="searchServicesPh" placeholder="ابحث في الخدمات والمكتبات (مثل AdMob, Firebase, Stripe)...">
+              </div>
+            </div>
+            <div class="column is-5">
+              <div class="buttons are-small is-right mb-0 pt-1">
+                <button id="btn-select-all-services" type="button" class="button is-small is-link is-light font-weight-semibold" data-i18n="btnSelectPopular">تحديد الشائع</button>
+                <button id="btn-clear-services" type="button" class="button is-small is-danger is-light font-weight-semibold" data-i18n="btnClearAll">إلغاء التحديد</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Services List Container -->
+          <div class="services-list-container mb-4" id="services-cards-box">
+            <!-- Dynamically populated via JS -->
+          </div>
+
+          <!-- Legal & Store Compliance Box -->
+          <div class="p-4 mb-4" style="background: var(--input-bg); border: 1.5px solid var(--input-border); border-radius: 16px;">
+            <h4 class="title is-6 mb-3" style="color: var(--text-main);" data-i18n="lblCompliance">الامتثال القانوني وحذف البيانات (Google Play & Apple)</h4>
+            
+            <div class="mb-3">
+              <label class="checkbox is-flex is-align-items-center gap-2" style="color: var(--text-main);">
+                <input type="checkbox" id="chk-target-children">
+                <strong style="color: var(--text-main);" data-i18n="lblCoppa">التطبيق موجه للأطفال دون سن 13 عاماً (قانون COPPA)</strong>
+              </label>
+            </div>
+
+            <div>
+              <label class="advanced-label" for="inp-deletion-url" data-i18n="lblDeletion">
+                رابط أو بريد طلب حذف الحساب والبيانات (إلزامي في Google Play):
+              </label>
+              <div class="advanced-input-wrapper">
+                <i class="fas fa-trash-alt advanced-input-icon"></i>
+                <input type="text" id="inp-deletion-url" class="advanced-input" value="https://example.com/delete-account" dir="ltr">
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 2 Navigation Buttons -->
+          <div class="is-flex is-justify-content-space-between mt-5 pt-3" style="border-top: 1px solid var(--card-border);">
+            <button id="btn-back-to-step-1" type="button" class="button is-light is-medium px-5">
+              <span class="icon mx-1"><i id="icon-back-arrow" class="fas fa-arrow-right"></i></span>
+              <span data-i18n="btnBack">السابق</span>
+            </button>
+            <button id="btn-next-to-generate" type="button" class="button btn-gradient is-medium px-6">
+              <span data-i18n="btnGenerate">توليد الوثائق القانونية</span>
+              <span class="icon mx-1"><i class="fas fa-check"></i></span>
+            </button>
+          </div>
+
+        </div>
+
+        <!-- ============================================================== -->
+        <!-- STEP 3: DOCUMENT GENERATION & EXPORT HUB                       -->
+        <!-- ============================================================== -->
+        <div id="step-pane-3" class="is-hidden">
+          
+          <div class="notification is-success is-light has-text-centered py-3 mb-4 no-print" style="border-radius: 16px;">
+            <span class="icon is-medium has-text-success">
+              <i class="fas fa-check-circle fa-2x"></i>
+            </span>
+            <h3 class="title is-5 mb-1" data-i18n="successTitle">تم توليد الوثائق بنجاح وبأعلى معايير الامتثال!</h3>
+            <p class="is-size-7" data-i18n="successSubtitle">اختر الوثيقة واللغة التي ترغب بتصديرها أو تضمينها في تطبيقك:</p>
+          </div>
+
+          <!-- Document Selector (Privacy Policy vs Terms & Conditions) -->
+          <div class="tabs is-boxed is-centered is-medium mb-3 no-print">
+            <ul>
+              <li id="tab-doc-privacy" class="is-active">
+                <a>
+                  <span class="icon is-small"><i class="fas fa-file-shield"></i></span>
+                  <span data-i18n="docPrivacy">سياسة الخصوصية (Privacy Policy)</span>
+                </a>
+              </li>
+              <li id="tab-doc-terms">
+                <a>
+                  <span class="icon is-small"><i class="fas fa-file-contract"></i></span>
+                  <span data-i18n="docTerms">الشروط والأحكام (Terms & Conditions)</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Output Language & View Mode Controls -->
+          <div class="is-flex is-flex-wrap-wrap is-justify-content-space-between is-align-items-center mb-3 px-2 gap-2 no-print">
+            
+            <!-- Target Document Language Selector (Choose from all 12 countries!) -->
+            <div class="is-flex is-align-items-center gap-2">
+              <span class="is-size-7 font-weight-bold" data-i18n="lblDocLang">لغة الوثيقة:</span>
+              <div class="select is-small">
+                <select id="sel-doc-language">
+                  <!-- Populated dynamically with all 12 languages and flags -->
+                </select>
+              </div>
+            </div>
+
+            <!-- Format View Mode Tabs -->
+            <div class="buttons are-small mb-0">
+              <button id="view-mode-preview" type="button" class="button is-link is-small font-weight-semibold" data-i18n="tabPreview">معاينة منسقة</button>
+              <button id="view-mode-html" type="button" class="button is-light is-small font-weight-semibold" data-i18n="tabHtml">كود HTML</button>
+              <button id="view-mode-md" type="button" class="button is-light is-small font-weight-semibold" data-i18n="tabMarkdown">Markdown</button>
+            </div>
+          </div>
+
+          <!-- Document Content Box -->
+          <div class="result-display-box mb-4">
+            <!-- Rendered Preview Area -->
+            <div id="render-content-box" class="content p-5">
+              <!-- Text injected via JS -->
+            </div>
+            <!-- Code View Area -->
+            <pre id="code-content-box" class="is-hidden p-4" dir="ltr"><code></code></pre>
+          </div>
+
+          <!-- Export Action Buttons -->
+          <div class="buttons is-centered mb-4 no-print">
+            <button id="btn-copy-code" type="button" class="button btn-gradient is-normal">
+              <span class="icon"><i class="fas fa-copy"></i></span>
+              <span id="copy-btn-caption" data-i18n="btnCopy">نسخ الكود</span>
+            </button>
+            <button id="btn-download-html" type="button" class="button is-success is-normal font-weight-semibold">
+              <span class="icon"><i class="fas fa-download"></i></span>
+              <span data-i18n="btnDownloadHtml">تحميل كملف HTML مستقل</span>
+            </button>
+            <button id="btn-download-md" type="button" class="button is-info is-normal font-weight-semibold">
+              <span class="icon"><i class="fab fa-markdown"></i></span>
+              <span data-i18n="btnDownloadMd">تحميل Markdown</span>
+            </button>
+            <button id="btn-live-view" type="button" class="button is-link is-light is-normal font-weight-semibold">
+              <span class="icon"><i class="fas fa-external-link-alt"></i></span>
+              <span data-i18n="btnLiveView">معاينة في نافذة مستقلة</span>
+            </button>
+            <button id="btn-print-doc" type="button" class="button is-light is-normal font-weight-semibold">
+              <span class="icon"><i class="fas fa-print"></i></span>
+              <span data-i18n="btnPrint">طباعة / PDF</span>
+            </button>
+          </div>
+
+          <!-- Edit Inputs Again -->
+          <div class="has-text-centered pt-3 no-print" style="border-top: 1px solid var(--card-border);">
+            <button id="btn-back-to-edit" type="button" class="button is-ghost is-small">
+              <span class="icon is-small"><i class="fas fa-edit"></i></span>
+              <span data-i18n="btnEdit">تعديل البيانات المدخلة</span>
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Modern Footer -->
+  <footer class="footer py-5 mt-6 no-print" style="background: var(--card-bg); border-top: 1px solid var(--card-border);">
+    <div class="content has-text-centered is-size-7">
+      <p style="color: var(--text-main);">
+        <strong style="color: var(--text-main);">App Privacy Policy Generator</strong> &bull; Inspired by <a href="https://github.com/nisrulz/app-privacy-policy-generator" target="_blank" rel="noopener noreferrer">Nishant Srivastava (nisrulz)</a>
+      </p>
+      <p class="has-text-grey">
+        متوافق مع 12 لغة عالمية ومتطلبات Google Play Store و Apple App Store و GDPR.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Toast Alert -->
+  <div id="copy-toast-alert" class="notification is-dark is-fixed-bottom-center is-hidden no-print">
+    <span class="icon"><i class="fas fa-check-circle has-text-success"></i></span>
+    <span id="toast-text-msg">تم النسخ بنجاح!</span>
+  </div>
+
+  <!-- Scripts -->
+  <script src="app.js"></script>
+  <script src="ui.js"></script>
+</body>
+</html>
